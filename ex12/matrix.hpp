@@ -192,6 +192,11 @@ public:
             lead++;
         }
 
+        for (size_t r = 0; r < rowCount; r++)
+            for (size_t c = 0; c < colCount; c++)
+                if (result[r][c] == 0)
+                    result[r][c] = 0;
+
         return result;
     }
     
@@ -328,7 +333,7 @@ public:
 
     void add(const Matrix<K> &mat)
     {
-        if (_mat.size() != mat.size())
+        if (_mat.size() != mat.size() || _mat[0].size() != mat[0].size())
             throw("Matrix must be the same size");
         for (size_t i = 0; i < _mat.size(); i++)
             for (size_t j = 0; j < _mat[i].size(); j++)
@@ -337,7 +342,7 @@ public:
 
     void sub(const Matrix<K> &mat)
     {
-        if (_mat.size() != mat.size())
+        if (_mat.size() != mat.size() || _mat[0].size() != mat[0].size())
             throw("Matrix must be the same size");
         for (size_t i = 0; i < _mat.size(); i++)
             for (size_t j = 0; j < _mat[i].size(); j++)
