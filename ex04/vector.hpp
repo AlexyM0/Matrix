@@ -6,7 +6,7 @@
 #include <cmath>
 
 template <typename K>
-class Matrix;
+struct Matrix;
 
 template <typename K>
 struct Vector
@@ -46,7 +46,7 @@ struct Vector
             return result;
         }
 
-        K dot(const Vector<K>& v)
+        K dot(const Vector<K>& v) const
         {
            if (v.size() != _vec.size())
             throw("Vectors must have same dimension");
@@ -113,7 +113,7 @@ struct Vector
 
         static Vector<K> ReshapeMatrixToVector(const Matrix<K>& m);
 
-        void add(Vector<K> &vec)
+        void add(const Vector<K> &vec)
         {
             if (_vec.size() != vec.size())
                 throw("Vectors must be the same dimension");
@@ -121,7 +121,7 @@ struct Vector
                 _vec[i] += vec[i];
         }
 
-        void sub(Vector<K> &vec)
+        void sub(const Vector<K> &vec)
         {
             if (_vec.size() != vec.size())
                 throw("Vectors must be the same dimension");

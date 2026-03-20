@@ -195,7 +195,7 @@ public:
         return result;
     }
     
-    Matrix<K> transpose()
+    Matrix<K> transpose() const
     {
         std::vector<std::vector<K>> result(_mat[0].size(), std::vector<K>(_mat.size(), 0));
         
@@ -326,7 +326,7 @@ public:
             std::cout << "This matrix is not square" << std::endl;
     }
 
-    void add(Matrix<K> &mat)
+    void add(const Matrix<K> &mat)
     {
         if (_mat.size() != mat.size())
             throw("Matrix must be the same size");
@@ -335,7 +335,7 @@ public:
                 _mat[i][j] += mat[i][j];
     }
 
-    void sub(Matrix<K> &mat)
+    void sub(const Matrix<K> &mat)
     {
         if (_mat.size() != mat.size())
             throw("Matrix must be the same size");

@@ -80,7 +80,7 @@ public:
             std::cout << "This matrix is not square" << std::endl;
     }
 
-    void add(Matrix<K> &mat)
+    void add(const Matrix<K> &mat)
     {
         if (_mat.size() != mat.size())
             throw("Matrix must be the same size");
@@ -89,7 +89,7 @@ public:
                 _mat[i][j] += mat[i][j];
     }
 
-    void sub(Matrix<K> &mat)
+    void sub(const Matrix<K> &mat)
     {
         if (_mat.size() != mat.size())
             throw("Matrix must be the same size");
