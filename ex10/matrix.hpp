@@ -42,7 +42,7 @@ public:
                 }
             }
 
-            // 🔁 SWAP MANUEL (pas std::swap)
+            // SWAP 
             if (i != r)
             {
                 for (size_t j = 0; j < colCount; j++)

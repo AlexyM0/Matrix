@@ -17,7 +17,7 @@ struct Vector
         Vector(std::vector<K> vec) : _vec(vec) {}
         ~Vector() {}
 
-        K dot(const Vector<K>& v)
+        K dot(const Vector<K>& v) const
         {
            if (v.size() != _vec.size())
             throw("Vectors must have same dimension");

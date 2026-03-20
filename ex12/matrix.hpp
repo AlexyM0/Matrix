@@ -26,8 +26,8 @@ public:
         for (size_t i = 0; i < n; i++)
         {
             for (size_t j = 0; j < n; j++)
-                aug[i][j] = (*this)[i][j];      // partie gauche = A
-            aug[i][n + i] = 1;                  // partie droite = I
+                aug[i][j] = (*this)[i][j];
+            aug[i][n + i] = 1;
         }
 
         // Étape 2 : transformer la partie gauche en identité
@@ -42,7 +42,7 @@ public:
                 if (swap_row == n)
                     throw "Matrix is singular, no inverse";
 
-                // swap manuel
+                // swap
                 for (size_t j = 0; j < 2 * n; j++)
                 {
                     K tmp = aug[i][j];
@@ -159,7 +159,7 @@ public:
                 }
             }
 
-            // 🔁 SWAP MANUEL (pas std::swap)
+            // SWAP MANUEL
             if (i != r)
             {
                 for (size_t j = 0; j < colCount; j++)
