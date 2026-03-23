@@ -15,7 +15,11 @@ struct Vector
         std::vector<K> _vec;
 
     public:
-        Vector(std::vector<K> vec) : _vec(vec) {}
+        Vector(std::vector<K> vec) : _vec(vec)
+        {
+            if (_vec.empty())
+                throw("Vector is not valid");
+        }
         ~Vector() {}
 
         float norm_1() const
