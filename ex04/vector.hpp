@@ -52,7 +52,7 @@ struct Vector
 
         K dot(const Vector<K>& v) const
         {
-           if (v.size() != _vec.size())
+            if (v.size() != _vec.size())
             throw("Vectors must have same dimension");
 
             K result = 0;
