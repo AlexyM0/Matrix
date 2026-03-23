@@ -82,6 +82,7 @@ public:
 
         return result;
     }
+    
     Matrix<K> transpose() const
     {
         std::vector<std::vector<K>> result(_mat[0].size(), std::vector<K>(_mat.size(), 0));

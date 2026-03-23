@@ -36,20 +36,17 @@ struct Vector
             if (u.size() != v.size())
                 throw "Vectors must have same dimension";
 
-            float dot_product = 0;
-            float norm_u_sq = 0;
-            float norm_v_sq = 0;
+            K dot_product = u.dot(v);
 
-            for (size_t i = 0; i < u.size(); i++)
-            {
-                dot_product = std::fma(u[i], v[i], dot_product);
-                norm_u_sq = std::fma(u[i], u[i], norm_u_sq);
-                norm_v_sq = std::fma(v[i], v[i], norm_v_sq);
-            }
+            float norm_u_sq = u.dot(u);
+            float norm_v_sq = v.dot(v);
+
             float n_u = my_sqrt(norm_u_sq);
             float n_v = my_sqrt(norm_v_sq);
 
-            return dot_product / (n_u * n_v);
+            if (n_u * n_v == 0) return 0;
+
+            return (float)dot_product / (n_u * n_v);
         }
 
         float norm_1() const
@@ -83,7 +80,7 @@ struct Vector
         K dot(const Vector<K>& v) const
         {
            if (v.size() != _vec.size())
-            throw("Vectors must have same dimension");
+                throw("Vectors must have same dimension");
 
             K result = 0;
             for (size_t i = 0; i < _vec.size(); i++)
